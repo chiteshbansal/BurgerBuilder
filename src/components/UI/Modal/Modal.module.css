@@ -10,7 +10,8 @@
     border: 2px solid #ccc;
     padding: 1rem;
     left: 15%;
-    top:20%;
+    top:15%;
+    margin-bottom: 2rem;
     transition: .2s linear;
 
 }

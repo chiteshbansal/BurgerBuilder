@@ -1,8 +1,26 @@
 .BuildControl {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin: 5px 0;
+    margin: 5px auto;
+    padding: .5rem;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 4px 4px 3px rgba(0,0,0,0.5);
+    transition: .4s linear;
+}
+
+.BuildControl:hover {
+    transform: translate(-5px ,-5px);
+    box-shadow: 9px 9px 3px rgba(0,0,0,0.5);
+}
+
+@media (min-width:500px)
+{
+    .BuildControl{
+        border-radius: 20px;
+        width: 50%;
+    }
 }
 
 .BuildControl button {
