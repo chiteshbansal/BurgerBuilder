@@ -18,7 +18,12 @@ const INTGREDIENT_PRICES ={
 class BurgerBuilder extends Component {
 
     state={
-        ingredients:null,
+        ingredients:{
+            salad:0,
+            meat:0,
+            bacon:0,
+            cheese:0,
+        },
         totalPrice:4,
         purchasble:false,
         purchased:false,
@@ -29,10 +34,10 @@ class BurgerBuilder extends Component {
     // Making call to fetch ingredients from the server
     componentDidMount(){
         console.log('inside the component did mount ');
-        axios.get('/ingredients.json')
-            .then(response=>{
-                this.setState({ingredients:response.data});
-            })
+        // axios.get('/ingredients.json')
+        //     .then(response=>{
+        //         this.setState({ingredients:response.data});
+        //     })
     }
     updatePurchaseHandler=(ingredients)=>{
         const sum = Object.keys(ingredients)
@@ -99,7 +104,7 @@ class BurgerBuilder extends Component {
         for(let i in this.state.ingredients){
             queryParams.push(encodeURIComponent(i) + "=" + encodeURIComponent(this.state.ingredients[i]));
         }
-
+        queryParams.push('price'+'='+this.state.totalPrice);
         let queryString = queryParams.join("&");
         this.props.history.push({
             pathname:"/CheckOut",

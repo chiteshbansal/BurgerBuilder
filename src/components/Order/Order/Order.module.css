@@ -1,0 +1,69 @@
+.Order{
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem auto;
+    border: 1px solid #eee;
+    box-shadow: 0px 3px 4px #ccc;
+    text-align: center;
+    background-image: linear-gradient(to right,yellow,white);
+}
+
+.OrderSummary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary{
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+    background-image: linear-gradient(15deg,rgb(187, 133, 34) 0,rgb(187, 133, 34) 60%,rgb(235, 160, 22) 40%);
+
+}
+
+.summary div{
+    padding: .3rem;
+}
+.Burger{
+
+    width: 45%;
+    height: 250px;
+    box-sizing: border-box;
+    overflow: auto;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 4px 4px 4px #ccc;
+    background-image: linear-gradient(315deg, rgb(114, 221, 14) 0,rgb(114, 221, 14) 80%,rgb(105, 182, 33) 50%);
+    
+}
+
+.TotalPrice{
+    text-align: left;
+    padding: .5rem;
+    display: inline-block;
+    margin: 1rem;
+    background-color: #ccc;
+}
+
+@media (min-width:600px){
+    .Order{
+        width: 500px;
+    }
+}
+
+@media (min-width:800px){
+    .Order{
+        width: 600px;
+    }
+}
+
+
+@media (min-width:1000px){
+    .Order{
+        width: 1000px;
+    }
+}
