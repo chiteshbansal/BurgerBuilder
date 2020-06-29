@@ -2,11 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {createStore,combineReducers,applyMiddleware,compose} from 'redux';
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+import BurgerBuilderreducer from './Store/reducers/BurgerBuilder';
+import OrderReducer from './Store/reducers/order';
+
+const rootReducer = combineReducers({
+    burgerBuilder:BurgerBuilderreducer,
+    order:OrderReducer,
+})
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+    <App/>
+    
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

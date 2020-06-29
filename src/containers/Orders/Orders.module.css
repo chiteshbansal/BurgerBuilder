@@ -1,0 +1,28 @@
+.NoOrderBox{
+    margin: 3rem auto;
+    width: 90%;
+    height: 200px;
+    text-align: center;
+    font-family: cursive;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: #eeeeee;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.08),-10px -10px 10px rgba(255,255,255,1);
+}
+
+.NoOrderBox:hover{
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.08),
+                -10px -10px 10px rgba(255,255,255,1),
+                inset 10px 10px 10px rgba(0,0,0,0.08),
+                inset -10px -10px 10px rgba(255,255,255,1);
+}
+
+@media (min-width:700px){
+    .NoOrderBox{
+        width: 600px;
+    }
+}
