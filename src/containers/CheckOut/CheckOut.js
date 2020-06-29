@@ -15,24 +15,28 @@ class CheckOut extends Component{
     render(){
         let summary = <Redirect to="/"/>
         if(this.props.ings){
-            summary = <CheckOutSummary 
-            CheckOutCancelled = {this.CheckOutCancelledHandler}
-            CheckOutContinued= {this.CheckOutContinuedHandler}
-            ingredients={this.props.ings}/>
+           let purchasedRedirect  = this.props.purchased?<Redirect to ='/'/>:null;
+            summary = <div>
+                    {purchasedRedirect}
+                    <CheckOutSummary 
+                    CheckOutCancelled = {this.CheckOutCancelledHandler}
+                    CheckOutContinued= {this.CheckOutContinuedHandler}
+                    ingredients={this.props.ings}/>
+                    <Route path={this.props.match.path+"/contact-data"} component={ContactData}/>
+            </div>
         }
-        return(
-            
+        return (
             <div>
                 {summary}
-                <Route path={this.props.match.path+"/contact-data"} component={ContactData}/>
             </div>
-        )
+        );
     }
 }
 
 const mapStateToProps = state =>{
     return{
         ings:state.burgerBuilder.ingredients,
+        purchased:state.order.purchased,
     }
 }
 

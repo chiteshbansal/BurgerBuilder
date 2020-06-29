@@ -18,12 +18,13 @@ const Order = (props) =>{
                 <div className={classes.summary}>
                     <h3>Ingredients</h3>
                     {orderSummary}
+                    <p className={classes.TotalPrice }>Total Price: <strong>{Number(props.orderDetails.price).toFixed(2)}</strong></p>
                 </div>
                 <div className={classes.Burger}>
                     <Burger  ingredients={props.orderDetails.ingredients} style = {{width: '250px',height: '250px'}}/>
                 </div>
             </div>
-            <p className={classes.TotalPrice }>Total Price: <strong>{Number(props.orderDetails.price).toFixed(2)}</strong></p>
+            
         </div>
     )
 }

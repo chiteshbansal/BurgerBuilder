@@ -4,8 +4,7 @@
     align-items: center;
     margin: 5px auto;
     padding: .5rem;
-    border-radius: 5px;
-    background-color: white;
+    background-color: #eeeeee;
     box-shadow: 4px 4px 3px rgba(0,0,0,0.5);
     transition: .4s linear;
 }
@@ -18,7 +17,6 @@
 @media (min-width:500px)
 {
     .BuildControl{
-        border-radius: 20px;
         width: 50%;
     }
 }
@@ -27,49 +25,76 @@
     display: block;
     font: inherit;
     padding: 5px;
+ 
     margin: 0 5px;
     width: 80px;
-    border: 1px solid #AA6817;
+    /* border: 1px solid #AA6817; */
     cursor: pointer;
     outline: none;
 }
 
 
 .BuildControl button:disabled {
-    background-color: #AC9980;
-    border: 1px solid #7E7365;
-    color: #ccc;
+    background-color: #eeeeee;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1),-2px -2px 5px white;
+    border: 1px solid #eeeeee;
+    color: grey;
     cursor: default;
 }
 
 .BuildControl button:hover:disabled {
-    background-color: #AC9980;
-    color: #ccc;
+    background-color: #eeeeee;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1),
+                -2px -2px 5px white,
+                inset 4px 4px 4px rgba(0,0,0,0.1),
+                inset -4px -4px 5px white;
+    border: 1px solid #eeeeee;
+    color: darkgray;
     cursor: not-allowed;
 }
 
 .Label {
     padding: 10px;
     font-weight: bold;
-    width: 80px;
+    width: 180px;
+    background-color: #eeeeee;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.2),-2px -2px 5px white;
+    border: 1px solid #eeeeee;
+    color: white;
+    color: black;
+    text-align: center;
 }
 
+/* 
 .BuildControl .Less {  
     background-color: #D39952;
     color: white;
-}
+} */
 
-.BuildControl .More {
-    background-color: #8F5E1E;
+.BuildControl .More,.Less {
+    background-color: #eeeeee;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1),-2px -2px 5px white;
+    border: 1px solid #eeeeee;
     color: white;
+    color: black;
 }
 
 .BuildControl .Less:hover, .BuildControl .Less:active {  
-    background-color: #DAA972;
-    color: white;
+    background-color: #eeeeee;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1),
+                -2px -2px 5px white,
+                inset 4px 4px 4px rgba(0,0,0,0.1),
+                inset -4px -4px 5px white;
+    border: 1px solid #eeeeee;
+    color: black;
 }
 
 .BuildControl .More:hover,.BuildControl .More:active {
-    background-color: #99703F;
-    color: white;
+    background-color: #eeeeee;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1),
+                -2px -2px 5px white,
+                inset 4px 4px 4px rgba(0,0,0,0.1),
+                inset -4px -4px 5px white;
+    border: 1px solid #eeeeee;
+    color: black;
 }

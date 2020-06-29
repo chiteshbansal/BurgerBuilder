@@ -21,7 +21,8 @@
     text-align: center;
     padding: 1rem;
     color: white;
-    background-color: saddlebrown;
+    background-color: #CF8F2E;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.1),-5px -5px 5px #c07d34;
 }
 .OrderButton{
     padding: .8rem .8rem;
