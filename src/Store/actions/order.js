@@ -26,6 +26,7 @@ export const purchaseBurger = ( orderData,token) =>{
     console.log("order data is ",orderData)
     return dispatch =>{
         dispatch(purchaseBurgerStart());
+        
         axios.post('/orders.json?auth='+token,orderData)
         .then(response=>{
             console.log("response is ",response.data);
@@ -69,11 +70,12 @@ export const fetchOrdersStart = () =>{
     }
 }
 
-export const fetchOrder = (token) =>{
+export const fetchOrder = (token,userId) =>{
     return dispatch => {
         dispatch(fetchOrdersStart()); 
         console.log('inside the order token is ', token);  
-        axios.get('orders.json?auth='+token)
+        const queryParams = '?auth='+token+'&orderBy="userId"&equalTo="'+userId+'"';
+        axios.get('orders.json'+queryParams)
             .then((response)=>{
                 let fetchedOrders = [];
 
@@ -86,6 +88,7 @@ export const fetchOrder = (token) =>{
                 dispatch(fetchOrdersSuccess(fetchedOrders))
                
             }).catch(error=>{
+                console.log('erros in fetching order ' ,error.response);
                 dispatch(fetchOrdersFail(error));
             })
     }
