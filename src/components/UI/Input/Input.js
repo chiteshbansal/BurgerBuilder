@@ -11,14 +11,18 @@ const Input = (props)=>{
     }   
 
     let InputElement = null;
-
+    let details = props.elementConfig.type==='password' && props.Invalid && props.touched?
+            <div style={{color:'red',}}>
+                Password should be at least {props.shouldValidate.minLength} characters long
+            </div>:null;
     switch(props.elementType){
         case('input'):
             InputElement=<input 
                 className={Inputclass.join(" ")} 
                  {...props.elementConfig}
                  defaultValue={props.value}
-                 onChange={props.changed}/>;
+                 onChange={props.changed}/>
+                 
             break;
         
         case('textarea'):
@@ -52,6 +56,7 @@ const Input = (props)=>{
         <div className={classes.Input}>
             <label className={classes.label}>{props.label}</label>
             {InputElement}
+            {details}
         </div>
     )
 }

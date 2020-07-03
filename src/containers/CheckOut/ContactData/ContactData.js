@@ -128,7 +128,6 @@ class ContactData extends Component {
         // to change the value state of the input element
         // event argument is passed by react by default 
         // we can access it anytime
-        console.log('input change handler');
         let OldOrderForms= {...this.state.OrderForm};
         const UpdatedformElement = {...OldOrderForms[InputIdentifier]};
         UpdatedformElement.value=event.target.value;
@@ -161,7 +160,7 @@ class ContactData extends Component {
                 OrderData:FormData,
             }
 
-            this.props.onOrderHandler(order);
+            this.props.onOrderHandler(order,this.props.token);
         //     axios.post('/orders.json',order)
         //         .then(response=>{
         //             this.setState({loading:false,});
@@ -171,6 +170,7 @@ class ContactData extends Component {
         // console.log('indide the order handler',this.props.ingredients);
     }
     render(){
+        console.log('inside the contact data');
         const formElements = [];
         for(let key in this.state.OrderForm){
             formElements.push({
@@ -213,12 +213,13 @@ const mapStateToProps = state =>{
         ingredients:state.burgerBuilder.ingredients,
         price:state.burgerBuilder.totalPrice,
         loading:state.order.loading,
+        token:state.auth.idToken,
     }
 }
 
 const mapDispatchToprops = dispatch =>{
     return {
-        onOrderHandler :(orderData) => dispatch(orderActions.purchaseBurger(orderData)),
+        onOrderHandler :(orderData,token) => dispatch(orderActions.purchaseBurger(orderData,token)),
     }
 }
 export default connect(mapStateToProps,mapDispatchToprops)(withErrorHandler(ContactData,axios));
