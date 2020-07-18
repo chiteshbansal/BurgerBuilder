@@ -11,7 +11,7 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import { connect } from "react-redux";
 import * as actions from "../../Store/actions/index";
 
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component {
   state = {
     // ingredients:null,
     // totalPrice:4,
@@ -49,7 +49,7 @@ class BurgerBuilder extends Component {
     if (this.props.isAuthenticated) {
       this.setState({ purchased: true });
     } else {
-      this.props.onsetAuthRedirectPath('/CheckOut');
+      this.props.onsetAuthRedirectPath("/CheckOut");
       this.props.history.push("/auth");
     }
   };
@@ -138,7 +138,8 @@ const mapDispatchToProps = (dispatch) => {
     // onIngredientsFetch : (ings) => dispatch(BurderBuilderActions.fetchIngredients(ings)),
     oninitIngredients: () => dispatch(actions.initIngredients()),
     oninitPurchase: () => dispatch(actions.purchaseInit()),
-    onsetAuthRedirectPath : (path) => dispatch(actions.setAuthRedirectPath(path)),
+    onsetAuthRedirectPath: (path) =>
+      dispatch(actions.setAuthRedirectPath(path)),
   };
 };
 export default connect(
